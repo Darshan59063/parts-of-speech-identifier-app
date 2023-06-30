@@ -76,6 +76,7 @@ target_dict = {1:"NOUN", 2:"VERB", 3:".", 4:"ADPOSITION", 5:"DETERMINER", 6:"ADJ
 
 app = Flask(__name__)
 
+app.secret_key = "secret key"
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///word_dict.db"
 db = SQLAlchemy(app)
 
