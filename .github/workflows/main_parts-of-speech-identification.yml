@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'parts-of-speech-identification'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A7865792376144A9959D41355AEF2BBB }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AB2E0977B00F441191B787784C82B23B }}
