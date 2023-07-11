@@ -14,7 +14,6 @@ from tensorflow.keras.layers import LSTM, GRU, SimpleRNN, Embedding
 from tensorflow.keras.models import Model
 from tensorflow.keras.losses import SparseCategoricalCrossentropy
 from keras.models import load_model
-# from static.nlp_model_source_code import word_tokenizer
 import os
 
 from tensorflow.keras.preprocessing.text import Tokenizer
@@ -56,23 +55,12 @@ word_tokenizer = Tokenizer(
   lower=should_lowercase,
   oov_token='UNK',
 )
-# otherwise unknown tokens will be removed and len(input) != len(target)
-# input words and target words will not be aligned!
 
 word_tokenizer.fit_on_texts(train_inputs)
 model = load_model('static/pos_tag_model.h5')
 
-# MAX_VOCAB_SIZE = None
-# should_lowercase = False
-# word_tokenizer = Tokenizer(
-#     num_words=MAX_VOCAB_SIZE,
-#     lower=should_lowercase,
-#     oov_token='UNK',
-# )
 
 target_dict = {1:"NOUN", 2:"VERB", 3:".", 4:"ADPOSITION", 5:"DETERMINER", 6:"ADJECTIVE", 7:"ADVERB", 8:"PRONOUN", 9:"CONJUNCTION", 10:"PRT", 11:"NUM", 12:"X"}
-
-
 
 app = Flask(__name__)
 
@@ -101,7 +89,6 @@ def home():
         T = 180
         train_inputs_int = pad_sequences(train_inputs_int, maxlen=T)
 
-        # first get length of each sequence
         train_lengths = []
         for sentence in word:
             train_lengths.append(len(sentence))
